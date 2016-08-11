@@ -18,7 +18,7 @@ public class App extends Application {
     public static final String LOG_TAG = "FAST App Search";
 
     public interface PackageChangedListener {
-        public void onPackageChange(AppInfoList appInfoList);
+        void onPackageChange(AppInfoList appInfoList);
     }
 
     public static PackageChangedListener packageChangedListener;
@@ -39,18 +39,12 @@ public class App extends Application {
     private static int getThemeByString(String theme) {
 
         switch (theme) {
-            case "transparent":
-                return R.style.transparent_dark;
-
-            case "transparent_light":
-                return R.style.transparent_light;
-
             case "dark":
-                return R.style.dark;
+                return R.style.AppTheme_Dark;
 
             case "light":
             default:
-                return R.style.light;
+                return R.style.AppTheme_Light;
 
         }
     }

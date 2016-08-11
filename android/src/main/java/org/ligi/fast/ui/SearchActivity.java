@@ -1,6 +1,5 @@
 package org.ligi.fast.ui;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -8,9 +7,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
@@ -40,7 +44,7 @@ import java.util.Locale;
 /**
  * The main Activity for this App - most things come together here
  */
-public class SearchActivity extends Activity implements App.PackageChangedListener {
+public class SearchActivity extends AppCompatActivity implements App.PackageChangedListener {
 
     private DynamicAppInfoList appInfoList;
     private AppInfoAdapter adapter;
@@ -55,12 +59,11 @@ public class SearchActivity extends Activity implements App.PackageChangedListen
         App.applyTheme(this);
 
         super.onCreate(savedInstanceState);
-
-       // requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-
         setContentView(R.layout.activity_search);
 
-        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         appInfoListStore = new AppInfoListStore(this);
 
@@ -179,7 +182,7 @@ public class SearchActivity extends Activity implements App.PackageChangedListen
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(this,"cannot start: " + e,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "cannot start: " + e, Toast.LENGTH_LONG).show();
         }
 
         if (Build.VERSION.SDK_INT > 18) {
@@ -260,12 +263,6 @@ public class SearchActivity extends Activity implements App.PackageChangedListen
     }
 
     @SuppressWarnings("UnusedDeclaration") // the API is that way
-    public void settingsClicked(View v) {
-        startActivity(new Intent(this, FASTSettingsActivity.class));
-        finish();
-    }
-
-    @SuppressWarnings("UnusedDeclaration") // the API is that way
     public void helpClicked(View v) {
         HelpDialog.show(this);
     }
@@ -327,5 +324,21 @@ public class SearchActivity extends Activity implements App.PackageChangedListen
         super.onPause();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                startActivity(new Intent(this, FASTSettingsActivity.class));
+                break;
+        }
+
+        return true;
+    }
 }

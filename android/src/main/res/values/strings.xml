@@ -49,8 +49,6 @@
     <string-array name="themes">
         <item>Dark</item>
         <item>Light</item>
-        <item>Transparent dark</item>
-        <item>Transparent light</item>
     </string-array>
 
     <string-array name="sort_orders">

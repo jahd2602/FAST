@@ -25,20 +25,15 @@ public class FASTSettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         App.applyTheme(this);
 
-       // requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-
         super.onCreate(savedInstanceState);
 
         PreferenceScreen prefs_screen = createPreferenceHierarchy();
         setPreferenceScreen(prefs_screen);
-
-       // getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.prefs_title);
     }
 
     private PreferenceScreen createPreferenceHierarchy() {
         @SuppressWarnings("deprecation")
-        PreferenceScreen root = getPreferenceManager().createPreferenceScreen(
-                this);
+        PreferenceScreen root = getPreferenceManager().createPreferenceScreen(this);
 
         CheckBoxPreference doLaunchSingleCheckBox = new CheckBoxPreference(this);
         doLaunchSingleCheckBox.setKey(FASTSettings.KEY_LAUNCHSINGLE);
@@ -115,7 +110,7 @@ public class FASTSettingsActivity extends PreferenceActivity {
         themePref.setTitle(R.string.theme);
         themePref.setSummary(R.string.choose_your_look);
         themePref.setEntries(R.array.themes);
-        themePref.setEntryValues(new CharSequence[]{"dark", "light", "transparent", "transparent_light"});
+        themePref.setEntryValues(new CharSequence[]{"dark", "light"});
         themePref.setDefaultValue("dark");
         themePref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
@@ -184,7 +179,6 @@ public class FASTSettingsActivity extends PreferenceActivity {
         advancedCategory.addPreference(allowGapSearch);
         advancedCategory.addPreference(resolutionPref);
         advancedCategory.addPreference(removeCachePreference);
-
 
         return root;
     }

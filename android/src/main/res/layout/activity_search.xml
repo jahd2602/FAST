@@ -1,9 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <include layout="@layout/main_title" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/searchEditText"
+            android:hint="@string/query_hint"
+            android:background="@null"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            />
+    </android.support.v7.widget.Toolbar>
 
     <GridView
         android:id="@+id/listView"
@@ -14,7 +34,6 @@
         android:gravity="center"
         android:horizontalSpacing="1dp"
         android:numColumns="auto_fit"
-        android:padding="3dp"
         android:persistentDrawingCache="all"
         android:stretchMode="columnWidth"
         android:verticalSpacing="10dp" />
