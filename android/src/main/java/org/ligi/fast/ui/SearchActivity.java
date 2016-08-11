@@ -12,7 +12,6 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -57,11 +56,11 @@ public class SearchActivity extends Activity implements App.PackageChangedListen
 
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+       // requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 
         setContentView(R.layout.activity_search);
 
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
+        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
 
         appInfoListStore = new AppInfoListStore(this);
 

@@ -9,7 +9,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.view.View;
-import android.view.Window;
 
 import org.ligi.axt.helpers.FileHelper;
 import org.ligi.fast.App;
@@ -26,14 +25,14 @@ public class FASTSettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         App.applyTheme(this);
 
-        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+       // requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 
         super.onCreate(savedInstanceState);
 
         PreferenceScreen prefs_screen = createPreferenceHierarchy();
         setPreferenceScreen(prefs_screen);
 
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.prefs_title);
+       // getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.prefs_title);
     }
 
     private PreferenceScreen createPreferenceHierarchy() {
