@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">FAST App Search Tool</string>
+    <string name="icon">Ikona</string>
+    <string name="launch_single">Auto spuštění</string>
+    <string name="settings">Nastavení</string>
+    <string name="share">Sdílet</string>
+    <string name="also_use_the_package_name_for_searching">Vyhledávejte názvem balíčku stejně jako názvem aplikace</string>
+    <string name="search_in_package">Vyhledávat názvem balíčku</string>
+    <string name="auto_launch_if_only_one_app_left">Automaticky spustí aplikaci (pokud zbývá jen jeden výsledek)</string>
+    <string name="open_in_for_all">Vždy zobrazit "Otevřít v %s"</string>
+    <string name="even_if_installed_another_way">Přesto, že apliakce byla nainstalována odjinud</string>
+    <string name="application_details">Detaily aplikace</string>
+    <string name="open_in">Otevřít v</string>
+    <string name="open_as_notification">Otevřít jako notifikaci</string>
+    <string name="query_hint">Vyhledat</string>
+    <string name="text_only">Zobrazovat jen názvy aplikací</string>
+    <string name="app_gone">Tato aplikace je pryč :-(</string>
+    <string name="show_no_icons_pure_text">Zobrazovat jen názvy bez ikon</string>
+    <string name="max_text_lines">Počet řádků textu</string>
+    <string name="how_much_text_you_want">Maximální počet řádků názvu aplikace</string>
+    <string name="create_shortcut">Create shortcut</string>
+    <string name="icon_size">Velikost ikon</string>
+    <string name="how_big_icons">Jak velké by měly být ikony?</string>
+    <string name="theme">Téma</string>
+    <string name="choose_your_look">Vyberte vzhled FAST</string>
+    <string name="sort">Řazení</string>
+    <string name="sort_decr">Jak mají být aplikace seřazeny?</string>
+    <string name="convert_umlauts">Konvertovat umlaut</string>
+    <string name="convert_umlauts_descr">Změnit ae na ä, oe na ö, ss na ß a ue na ü</string>
+    <string name="allow_gap_search">Vyhledávat pomocí slov</string>
+    <string name="allow_gap_search_descr">Souhlasí všechna písmena, ne jen celá slova</string>
+    <string name="loadingDialogTitle">Ukládání do mezipaměti pro rychlejší FAST</string>
+    <string name="ignore_space">Ignorovat mezeru</string>
+    <string name="ignore_space_descr">Odstranit poslední mezeru z vyhledávání</string>
+    <string name="show_keyboard">Zobrazit klávesnici</string>
+    <string name="show_keyboard_descr">Zobrazit klávesnici při startu</string>
+    <string name="appActionDialog_title">FAST spuštění</string>
+    <string name="remove_cache">Vymazat mezipaměť</string>
+    <string name="remove_cache_descr">Manuálně smaže mezipaměť a historii</string>
+    <string name="icon_resolution_title">Rozlišení ikon</string>
+    <string name="icon_resolution_summary">Rychlost nebo detail?</string>
+    <string-array name="sizes">
+        <item>Mrňavé</item>
+        <item>Malé</item>
+        <item>Střední</item>
+        <item>Velké</item>
+    </string-array>
+
+    <string-array name="themes">
+        <item>Tmavé</item>
+        <item>Světlé</item>
+    </string-array>
+
+    <string-array name="sort_orders">
+        <item>Neřadit</item>
+        <item>Abecedně</item>
+        <item>Použitím</item>
+        <item>Časem instalace</item>
+    </string-array>
+</resources>
