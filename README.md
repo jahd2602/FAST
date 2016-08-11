@@ -1,4 +1,4 @@
-[![Build Status](https://snap-ci.com/ligi/FAST/branch/master/build_image)](https://snap-ci.com/ligi/FAST/branch/master)
+[![Build Status](https://snap-ci.com/michallebeda/FAST/branch/master/build_image)](https://snap-ci.com/michallebeda/FAST/branch/master)
 
 Intro
 =====
@@ -9,8 +9,8 @@ Just type in a fraction of the name of the App you want to launch - most of the 
 [![Android app on Google Play](http://ligi.de/img/play_badge.png)](https://play.google.com/store/apps/details?id=org.ligi.fast)
 [![Android app on FDroid](http://ligi.de/img/fdroid_badge.png)](https://f-droid.org/repository/browse/?fdid=org.ligi.fast)
 
-<img src="https://raw.github.com/ligi/FAST/master/promo/512x512.png"/>
-<img src="https://raw.github.com/ligi/FAST/master/promo/qr_googleplay.png"/>
+<img src="https://raw.github.com/michallebeda/FAST/master/promo/512x512.png"/>
+<img src="https://raw.github.com/michallebeda/FAST/master/promo/qr_googleplay.png"/>
 
 Howto
 =====
