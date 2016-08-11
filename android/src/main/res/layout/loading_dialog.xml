@@ -20,7 +20,7 @@
             android:contentDescription="@string/icon"
             android:padding="6dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher" />
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
 

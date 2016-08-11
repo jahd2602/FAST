@@ -15,14 +15,16 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+
 import org.ligi.fast.App;
 import org.ligi.fast.R;
 import org.ligi.fast.TargetStore;
 import org.ligi.fast.model.AppInfo;
 import org.ligi.tracedroid.logging.Log;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class AppActionDialogBuilder extends AlertDialog.Builder {
     private static final String SCHEME = "package";
@@ -162,7 +164,7 @@ public class AppActionDialogBuilder extends AlertDialog.Builder {
 
             if (Build.VERSION.SDK_INT < 16) {
                 notification = new Notification();
-                notification.icon = R.drawable.ic_launcher;
+                notification.icon = R.mipmap.ic_launcher;
                 try {
                     Method deprecatedMethod = notification.getClass()
                                                           .getMethod("setLatestEventInfo",
@@ -178,7 +180,7 @@ public class AppActionDialogBuilder extends AlertDialog.Builder {
             } else {
                 // Use new API
                 Notification.Builder builder = new Notification.Builder(context).setContentIntent(intent)
-                                                                                .setSmallIcon(R.drawable.ic_launcher)
+                                                                                .setSmallIcon(R.mipmap.ic_launcher)
                                                                                 .setContentTitle(title);
                 notification = builder.build();
             }
