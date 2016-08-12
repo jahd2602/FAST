@@ -47,8 +47,7 @@ import java.util.Locale;
 public class SearchActivity extends AppCompatActivity implements App.PackageChangedListener {
 
     private static final int DIALOG_REQUEST_CODE = 1;
-    //if theme is changed in settings activity this has to be true
-    public static boolean needsRestart = false;
+
     private DynamicAppInfoList appInfoList;
     private AppInfoAdapter adapter;
     private String oldSearch = "";
@@ -235,13 +234,6 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
 
         final String iconSize = App.getSettings().getIconSize();
         gridView.setColumnWidth((int) getResources().getDimension(getWidthByIconSize(iconSize)));
-
-        if (needsRestart) {
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
-            needsRestart = false;
-        }
     }
 
     private void dealWithUserPreferencesRegardingSoftKeyboard() {
@@ -343,6 +335,7 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
+                finish();
                 startActivity(new Intent(this, FASTSettingsActivity.class));
                 break;
         }
