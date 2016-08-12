@@ -2,6 +2,7 @@ package org.ligi.fast.ui;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +37,7 @@ public class AppInfoAdapter extends BaseAdapter {
     public AppInfoAdapter(Context ctx, DynamicAppInfoList appInfoList) {
         this.appInfoList = appInfoList;
 
-        int color = (ctx.getResources().getColor(R.color.divider_color));
+        int color = ContextCompat.getColor(ctx, R.color.divider_color);
         final String hexColorString = Integer.toHexString(color).toUpperCase(Locale.ENGLISH).substring(2);
         highlightPrefix = "<font color='#" + hexColorString +"'>";
         layoutInflater = LayoutInflater.from(ctx);
