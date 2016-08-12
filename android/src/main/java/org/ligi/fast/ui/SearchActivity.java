@@ -46,13 +46,28 @@ import java.util.Locale;
  */
 public class SearchActivity extends AppCompatActivity implements App.PackageChangedListener {
 
+    private static final int DIALOG_REQUEST_CODE = 1;
+    //if theme is changed in settings activity this has to be true
+    public static boolean needsRestart = false;
     private DynamicAppInfoList appInfoList;
     private AppInfoAdapter adapter;
     private String oldSearch = "";
     private EditText searchQueryEditText;
     private GridView gridView;
-
     private AppInfoListStore appInfoListStore;
+
+    private static int getWidthByIconSize(String iconSize) {
+        switch (iconSize) {
+            case "tiny":
+                return R.dimen.cell_size_tiny;
+            case "small":
+                return R.dimen.cell_size_small;
+            case "large":
+                return R.dimen.cell_size_large;
+            default:
+                return R.dimen.cell_size;
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,7 +154,7 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
 
 
         if (appInfoList.size() == 0) {
-            startActivityForResult(new Intent(this, LoadingDialog.class), R.id.activityResultLoadingDialog);
+            startActivityForResult(new Intent(this, LoadingDialog.class), DIALOG_REQUEST_CODE);
         } else { // the second time - we use the old index to be fast but
             // regenerate in background to be recent
 
@@ -195,13 +210,12 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
         }
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case R.id.activityResultLoadingDialog:
+            case DIALOG_REQUEST_CODE:
                 onPackageChange(appInfoListStore.load());
                 break;
         }
@@ -221,18 +235,12 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
 
         final String iconSize = App.getSettings().getIconSize();
         gridView.setColumnWidth((int) getResources().getDimension(getWidthByIconSize(iconSize)));
-    }
 
-    private static int getWidthByIconSize(String iconSize) {
-        switch (iconSize) {
-            case "tiny":
-                return R.dimen.cell_size_tiny;
-            case "small":
-                return R.dimen.cell_size_small;
-            case "large":
-                return R.dimen.cell_size_large;
-            default:
-                return R.dimen.cell_size;
+        if (needsRestart) {
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+            needsRestart = false;
         }
     }
 

@@ -116,6 +116,7 @@ public class FASTSettingsActivity extends PreferenceActivity {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 finish();
+                SearchActivity.needsRestart = true;
                 startActivity(getIntent());
                 return true;
             }
@@ -202,8 +203,9 @@ public class FASTSettingsActivity extends PreferenceActivity {
         @Override
         public boolean onPreferenceClick(Preference preference) {
             new FileHelper(App.getBaseDir()).deleteRecursive();
+            SearchActivity.needsRestart = true;
             Intent intent = new Intent(FASTSettingsActivity.this, SearchActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             return false;
         }
