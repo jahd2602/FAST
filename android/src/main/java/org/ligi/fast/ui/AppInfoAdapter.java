@@ -141,7 +141,12 @@ public class AppInfoAdapter extends BaseAdapter {
             }
         }
 
-        labelView.setText(Html.fromHtml(highlight_label));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            labelView.setText(Html.fromHtml(highlight_label,Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            labelView.setText(Html.fromHtml(highlight_label));
+        }
+
         return convertView;
     }
 
