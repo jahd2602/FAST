@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 
 import org.ligi.fast.App;
 import org.ligi.tracedroid.logging.Log;
@@ -64,12 +65,6 @@ public class AppIconCache {
 
         // too bad - we kind of tried everything ..
     }
-
-    class IconCacheSpec {
-        public int maxSize = App.getSettings().getIconResolution();
-        public int quality = 100;
-    }
-
 
     @SuppressWarnings("ResultOfMethodCallIgnored") // as we do not care if it is new or old
     private boolean createIconCacheFile() throws IOException {
@@ -133,7 +128,6 @@ public class AppIconCache {
         return new Point((int) (point.x * scale), (int) (point.y * scale));
     }
 
-
     public Drawable getIcon() {
         // return the cached Icon if we have one
         if (cachedIcon != null && cachedIcon.get() != null) {
@@ -151,13 +145,18 @@ public class AppIconCache {
 
         // if we came here we we could not return the cached Icon - ty to rescue situation
         try {
-            return ctx.getResources().getDrawable(android.R.drawable.ic_menu_more);
+            return ContextCompat.getDrawable(ctx, android.R.drawable.ic_menu_more);
         } catch (Exception e) {
             // could not load rescue icon - another attempt follows
         }
 
         // create a image for the very last rescue-attempt
         return new BitmapDrawable(Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_4444));
+    }
+
+    class IconCacheSpec {
+        public int maxSize = App.getSettings().getIconResolution();
+        public int quality = 100;
     }
 
 }

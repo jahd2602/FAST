@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.ligi.fast.util.UmlautConverter;
 
 import static junit.framework.Assert.assertNull;
-import static junit.framework.Assert.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TheUmlautConverter {

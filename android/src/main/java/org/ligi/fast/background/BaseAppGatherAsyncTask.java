@@ -9,7 +9,6 @@ import org.ligi.fast.model.AppInfo;
 import org.ligi.fast.model.AppInfoList;
 import org.ligi.tracedroid.logging.Log;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,9 +16,9 @@ import java.util.List;
  */
 public class BaseAppGatherAsyncTask extends AsyncTask<Void, AppInfo, Void> {
     private final Context ctx;
+    private final AppInfoList oldAppList;
     protected int appCount;
     protected AppInfoList appInfoList;
-    private final AppInfoList oldAppList;
 
     public BaseAppGatherAsyncTask(Context ctx) {
         this(ctx, null);

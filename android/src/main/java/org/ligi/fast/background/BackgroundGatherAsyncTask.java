@@ -5,9 +5,6 @@ import android.content.Context;
 import org.ligi.fast.App;
 import org.ligi.fast.model.AppInfo;
 import org.ligi.fast.model.AppInfoList;
-import org.ligi.fast.util.AppInfoListStore;
-
-import java.util.List;
 
 public class BackgroundGatherAsyncTask extends BaseAppGatherAsyncTask {
 
