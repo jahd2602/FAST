@@ -95,56 +95,56 @@ public class AppInfoAdapter extends BaseAdapter {
         } else {
             labelView.setMaxLines(maxLines);
             labelView.setVisibility(View.VISIBLE);
-        }
 
-        String label = actAppInfo.getLabel();
-        String highlight_label = label;
+            String label = actAppInfo.getLabel();
+            String highlight_label = label;
 
-        int query_index = label.toLowerCase(Locale.ENGLISH).indexOf(appInfoList.getCurrentQuery());
+            int query_index = label.toLowerCase(Locale.ENGLISH).indexOf(appInfoList.getCurrentQuery());
 
-        if (appInfoList.getCurrentQuery().length() == 0) {
-            labelView.setText(label);
-            
-            return convertView;
-        }
+            if (appInfoList.getCurrentQuery().length() == 0) {
+                labelView.setText(label);
 
-        if (query_index == -1) { // search not App-Name - hope it is in Package Name - why else we want to show the app?
-            label = actAppInfo.getPackageName();
-            label = label.replace("com.google.android.apps.", "");
-            query_index = label.toLowerCase(Locale.ENGLISH).indexOf(appInfoList.getCurrentQuery());
-        }
+                return convertView;
+            }
+
+            if (query_index == -1) { // search not App-Name - hope it is in Package Name - why else we want to show the app?
+                label = actAppInfo.getPackageName();
+                label = label.replace("com.google.android.apps.", "");
+                query_index = label.toLowerCase(Locale.ENGLISH).indexOf(appInfoList.getCurrentQuery());
+            }
 
 
-        if (query_index != -1) {
-            highlight_label = label.substring(0, query_index)
-                    + highlightPrefix
-                    + label.substring(query_index,query_index + appInfoList.getCurrentQuery().length())
-                    + highlightSuffix
-                    + label.substring(query_index + appInfoList.getCurrentQuery().length(),
-                    label.length());
-        } else if (App.getSettings().isGapSearchActivated()) {
+            if (query_index != -1) {
+                highlight_label = label.substring(0, query_index)
+                        + highlightPrefix
+                        + label.substring(query_index, query_index + appInfoList.getCurrentQuery().length())
+                        + highlightSuffix
+                        + label.substring(query_index + appInfoList.getCurrentQuery().length(),
+                        label.length());
+            } else if (App.getSettings().isGapSearchActivated()) {
 
-            final ArrayList<Integer> matchedIndices = StringUtils.getMatchedIndices(actAppInfo.getLabel(),appInfoList.getCurrentQuery());
-            if (matchedIndices.size()==appInfoList.getCurrentQuery().length()) {
-                // highlight single characters of query in label for gap matched strings
-                label = actAppInfo.getLabel();
-            } // otherwise must be in package
+                final ArrayList<Integer> matchedIndices = StringUtils.getMatchedIndices(actAppInfo.getLabel(), appInfoList.getCurrentQuery());
+                if (matchedIndices.size() == appInfoList.getCurrentQuery().length()) {
+                    // highlight single characters of query in label for gap matched strings
+                    label = actAppInfo.getLabel();
+                } // otherwise must be in package
 
-            highlight_label="";
-            int i=0;
-            for (char chr:label.toCharArray()) {
-                if (matchedIndices.contains(i++)) {
-                    highlight_label+=highlightPrefix+chr+highlightSuffix;
-                } else {
-                    highlight_label+=chr;
+                highlight_label = "";
+                int i = 0;
+                for (char chr : label.toCharArray()) {
+                    if (matchedIndices.contains(i++)) {
+                        highlight_label += highlightPrefix + chr + highlightSuffix;
+                    } else {
+                        highlight_label += chr;
+                    }
                 }
             }
-        }
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            labelView.setText(Html.fromHtml(highlight_label,Html.FROM_HTML_MODE_LEGACY));
-        } else {
-            labelView.setText(Html.fromHtml(highlight_label));
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                labelView.setText(Html.fromHtml(highlight_label, Html.FROM_HTML_MODE_LEGACY));
+            } else {
+                labelView.setText(Html.fromHtml(highlight_label));
+            }
         }
 
         return convertView;
