@@ -27,9 +27,8 @@ import java.util.Locale;
  */
 public class AppInfoAdapter extends BaseAdapter {
 
-    private final String highlightPrefix;
     private final static String highlightSuffix = "</font>";
-
+    private final String highlightPrefix;
     private final DynamicAppInfoList appInfoList;
     private final LayoutInflater layoutInflater;
     private final IconDimensions iconDimensions;
@@ -62,10 +61,10 @@ public class AppInfoAdapter extends BaseAdapter {
 
         if (convertView == null) { // || ((ViewHolder)convertView.getTag()).isTextOnlyActive == getSettings().isTextOnlyActive()) { // if it's not recycled, initialize some
             if (App.getSettings().isTextOnlyActivated()) {
-                convertView = layoutInflater.inflate(R.layout.item_textonly, null);
+                convertView = layoutInflater.inflate(R.layout.item_textonly, parent, false);
             } else {
 
-                convertView = layoutInflater.inflate(R.layout.item_icon, null);
+                convertView = layoutInflater.inflate(R.layout.item_icon, parent, false);
                 convertView.setLayoutParams(new AbsListView.LayoutParams(iconDimensions.outerSizeInPx, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
@@ -157,11 +156,6 @@ public class AppInfoAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private static class ViewHolder {
-        public TextView text;
-        public ImageView image;
-    }
-
     public void setSortMode(final DynamicAppInfoList.SortMode sortMode) {
         appInfoList.setSortMode(sortMode);
         notifyDataSetChanged();
@@ -170,5 +164,10 @@ public class AppInfoAdapter extends BaseAdapter {
     public void updateList(AppInfoList list) {
         appInfoList.update(list);
         notifyDataSetChanged();
+    }
+
+    private static class ViewHolder {
+        public TextView text;
+        public ImageView image;
     }
 }
