@@ -4,15 +4,19 @@
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorHighlight">@color/colorHighlightLight</item>
+
         <item name="android:windowBackground">@color/colorDark</item>
-        <item name="colorAccent">@color/darkColorAccent</item>
     </style>
 
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:windowBackground">@color/colorLight</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorHighlight">@color/colorHighlightDark</item>
+
+        <item name="android:windowBackground">@color/colorLight</item>
     </style>
 
     <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">

@@ -1,11 +1,14 @@
 <resources>
-    <color name="divider_color">#FFC107</color>
+    <color name="colorPrimary">#263238</color>
+    <color name="colorPrimaryDark">#21272b</color>
 
-    <color name="colorPrimary">#4CAF50</color>
     <color name="colorLight">#FAFAFA</color>
-    <color name="colorDark">#212121</color>
-    <color name="colorPrimaryDark">#388E3C</color>
-    <color name="colorAccent">#3F51B5</color>
-    <color name="darkColorAccent">#FFC107</color>
+    <color name="colorDark">#21272b</color>
+
+    <color name="colorHighlightLight">#FAFAFA</color>
+    <color name="colorHighlightDark">#212121</color>
+
+    <color name="colorAccent">#019587</color>
+    <color name="colorDarkAccent">#019587</color>
 </resources>
 
