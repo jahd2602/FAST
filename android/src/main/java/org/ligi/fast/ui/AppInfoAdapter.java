@@ -2,8 +2,8 @@ package org.ligi.fast.ui;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.text.Html;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +27,7 @@ import java.util.Locale;
  */
 public class AppInfoAdapter extends BaseAdapter {
 
-    private final static String highlightSuffix = "</font>";
+    private final static String highlightSuffix = "</font></b>";
     private final String highlightPrefix;
     private final DynamicAppInfoList appInfoList;
     private final LayoutInflater layoutInflater;
@@ -36,13 +36,16 @@ public class AppInfoAdapter extends BaseAdapter {
     public AppInfoAdapter(Context ctx, DynamicAppInfoList appInfoList) {
         this.appInfoList = appInfoList;
 
-        int color = ContextCompat.getColor(ctx, R.color.divider_color);
+        //int color = ContextCompat.getColor(ctx, R.attr.highlighColor);
+        final TypedValue value = new TypedValue();
+        ctx.getTheme().resolveAttribute(R.attr.colorHighlight, value, true);
+        int color = value.data;
+
         final String hexColorString = Integer.toHexString(color).toUpperCase(Locale.ENGLISH).substring(2);
-        highlightPrefix = "<font color='#" + hexColorString +"'>";
+        highlightPrefix = "<b><font color='#" + hexColorString + "'>";
         layoutInflater = LayoutInflater.from(ctx);
         iconDimensions = new IconDimensions(ctx);
     }
-
 
     public int getCount() {
         return appInfoList.size();
@@ -79,7 +82,7 @@ public class AppInfoAdapter extends BaseAdapter {
 
         holder = (ViewHolder) convertView.getTag();
         ImageView imageView = holder.image;
-        TextView labelView= holder.text;
+        TextView labelView = holder.text;
 
         AppInfo actAppInfo = appInfoList.get(position);
 
@@ -90,7 +93,7 @@ public class AppInfoAdapter extends BaseAdapter {
 
         final int maxLines = App.getSettings().getMaxLines();
 
-        if (maxLines==0) {
+        if (maxLines == 0) {
             labelView.setVisibility(View.GONE);
         } else {
             labelView.setMaxLines(maxLines);
