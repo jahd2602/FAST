@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="prefs_display"
+        android:title="Display">
+
+        <ListPreference
+            android:defaultValue="@string/pref_themeDefaultValue"
+            android:dialogTitle="@string/theme"
+            android:entries="@array/pref_themes"
+            android:entryValues="@array/pref_themesValues"
+            android:key="theme"
+            android:summary="@string/choose_your_look"
+            android:title="@string/theme" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_sizesDefaultValue"
+            android:dialogTitle="@string/icon_size"
+            android:entries="@array/pref_sizes"
+            android:entryValues="@array/pref_sizesValues"
+            android:key="iconsize"
+            android:summary="@string/how_big_icons"
+            android:title="@string/icon_size" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_rowsDefaultValue"
+            android:dialogTitle="@string/max_text_lines"
+            android:entries="@array/pref_rows"
+            android:entryValues="@array/pref_rowsValues"
+            android:key="maxlines"
+            android:summary="@string/how_much_text_you_want"
+            android:title="@string/max_text_lines" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="textonly"
+            android:summary="@string/show_no_icons_pure_text"
+            android:title="@string/text_only" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="PREF_BEHAVIOR"
+        android:title="Behavior">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="launch_single"
+            android:summary="@string/auto_launch_if_only_one_app_left"
+            android:title="@string/launch_single" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="search_pkg"
+            android:summary="@string/also_use_the_package_name_for_searching"
+            android:title="@string/search_in_package" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="finish_on_LAUNCH"
+            android:summary="eeee"
+            android:title="Finish app" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="marketforall"
+            android:summary="@string/even_if_installed_another_way"
+            android:title="@string/open_in_for_all" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_sortDefaultValue"
+            android:dialogTitle="@string/sort"
+            android:entries="@array/pref_sort"
+            android:entryValues="@array/pref_sortValues"
+            android:key="sort"
+            android:summary="@string/sort_decr"
+            android:title="@string/sort" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ignore_space"
+            android:summary="@string/ignore_space"
+            android:title="@string/ignore_space_descr" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="show_keyboard_on_start"
+            android:summary="@string/show_keyboard"
+            android:title="@string/show_keyboard_descr" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="PREF_ADVANCED"
+        android:title="Advanced">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="convert_umlauts"
+            android:summary="@string/convert_umlauts_descr"
+            android:title="@string/convert_umlauts" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="gap_search"
+            android:summary="@string/allow_gap_search_descr"
+            android:title="@string/allow_gap_search" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_resolutionsDefaultValue"
+            android:dialogTitle="Icon Resolution"
+            android:entries="@array/pref_resolutions"
+            android:entryValues="@array/pref_resolutionsValues"
+            android:key="icon_res"
+            android:summary="@string/icon_resolution_summary"
+            android:title="@string/icon_resolution_title" />
+
+        <Preference
+            android:key="clear_cache"
+            android:summary="@string/remove_cache_descr"
+            android:title="@string/remove_cache" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

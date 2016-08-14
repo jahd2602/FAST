@@ -19,6 +19,7 @@ public interface FASTSettings {
     static final String KEY_FINISH_ON_LAUNCH = "finish_on_LAUNCH";
     static final String KEY_GAP_SEARCH = "gap_search";
     static final String KEY_ICONRES = "icon_res";
+    static final String KEY_CLEAR_CACHE = "clear_cache";
 
     boolean isLaunchSingleActivated();
 
