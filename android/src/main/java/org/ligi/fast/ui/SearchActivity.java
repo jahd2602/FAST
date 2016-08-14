@@ -336,7 +336,7 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
         switch (item.getItemId()) {
             case R.id.action_settings:
                 finish();
-                startActivity(new Intent(this, FASTSettingsActivity.class));
+                startActivity(new Intent(this, MyPreferenceActivity.class));
                 break;
         }
 

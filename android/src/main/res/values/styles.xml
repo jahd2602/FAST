@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar"></style>
+
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorHighlight">@color/colorHighlightLight</item>
-
         <item name="android:windowBackground">@color/colorDark</item>
+
+        <item name="preferenceTheme">@style/AppTheme.FixForPreferenceThemeOverlay</item>
     </style>
 
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
@@ -15,14 +18,24 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorHighlight">@color/colorHighlightDark</item>
-
         <item name="android:windowBackground">@color/colorLight</item>
+
+        <item name="preferenceTheme">@style/AppTheme.FixForPreferenceThemeOverlay</item>
     </style>
 
     <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.FixForPreferenceThemeOverlay" parent="PreferenceThemeOverlay">
+        <item name="preferenceFragmentListStyle">@style/AppTheme.FixForPreferenceFragmentList</item>
+    </style>
+
+    <style name="AppTheme.FixForPreferenceFragmentList">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
     </style>
 
 </resources>

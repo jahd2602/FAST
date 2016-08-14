@@ -39,22 +39,83 @@
     <string name="remove_cache_descr">Force FAST to reset app list and history</string>
     <string name="icon_resolution_title">Icon Resolution</string>
     <string name="icon_resolution_summary">More speed or more pixels?</string>
-    <string-array name="sizes">
+
+    <string-array name="pref_sizes">
         <item>Tiny</item>
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
     </string-array>
 
-    <string-array name="themes">
+    <string-array name="pref_sizesValues">
+        <item>tiny</item>
+        <item>small</item>
+        <item>medium</item>
+        <item>large</item>
+    </string-array>
+
+    <string name="pref_sizesDefaultValue">medium</string>
+
+    <string-array name="pref_themes">
         <item>Dark</item>
         <item>Light</item>
     </string-array>
 
-    <string-array name="sort_orders">
+    <string-array name="pref_themesValues">
+        <item>dark</item>
+        <item>light</item>
+    </string-array>
+
+    <string name="pref_themeDefaultValue">dark</string>
+
+    <string-array name="pref_sort">
         <item>Unsorted</item>
         <item>Alphabetical</item>
         <item>By usage</item>
-        <item>By installation time</item>
-        </string-array>
+        <item>By install</item>
+    </string-array>
+
+    <string-array name="pref_sortValues">
+        <item>unsorted</item>
+        <item>alphabetical</item>
+        <item>usage</item>
+        <item>install</item>
+    </string-array>
+
+    <string name="pref_sortDefaultValue">usage</string>
+
+    <string-array name="pref_rows">
+        <item>No text</item>
+        <item>1 row</item>
+        <item>2 rows</item>
+        <item>3 rows</item>
+    </string-array>
+
+    <string-array name="pref_rowsValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string name="pref_rowsDefaultValue">1</string>
+
+    <string-array name="pref_resolutions">
+        <item>48</item>
+        <item>96</item>
+        <item>128</item>
+        <item>512</item>
+    </string-array>
+
+    <string-array name="pref_resolutionsValues">
+        <item>48</item>
+        <item>96</item>
+        <item>128</item>
+        <item>512</item>
+    </string-array>
+
+    <string name="pref_resolutionsDefaultValue">128</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
