@@ -95,7 +95,7 @@ public class AppInfoAdapter extends BaseAdapter {
 
         if (maxLines == 0) {
             labelView.setVisibility(View.GONE);
-        } else {
+        } else { //no need to care of these if text is hidden (maxLines == 0)
             labelView.setMaxLines(maxLines);
             labelView.setVisibility(View.VISIBLE);
 

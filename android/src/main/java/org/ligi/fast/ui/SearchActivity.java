@@ -91,9 +91,8 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
         gridView = (GridView) findViewById(R.id.listView);
 
         searchQueryEditText = (EditText) findViewById(R.id.searchEditText);
-        searchQueryEditText.setSingleLine();
         searchQueryEditText.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
-        searchQueryEditText.setImeActionLabel("Launch", EditorInfo.IME_ACTION_DONE);
+        // searchQueryEditText.setImeActionLabel("Launch", EditorInfo.IME_ACTION_DONE);
 
         searchQueryEditText.setOnEditorActionListener(new OnEditorActionListener() {
 
