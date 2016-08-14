@@ -5,28 +5,28 @@
         android:title="Display">
 
         <ListPreference
-            android:defaultValue="@string/pref_themeDefaultValue"
+            android:defaultValue="@string/themeDefaultValue"
             android:dialogTitle="@string/theme"
-            android:entries="@array/pref_themes"
-            android:entryValues="@array/pref_themesValues"
+            android:entries="@array/themes"
+            android:entryValues="@array/themesValues"
             android:key="theme"
             android:summary="@string/choose_your_look"
             android:title="@string/theme" />
 
         <ListPreference
-            android:defaultValue="@string/pref_sizesDefaultValue"
+            android:defaultValue="@string/sizesDefaultValue"
             android:dialogTitle="@string/icon_size"
-            android:entries="@array/pref_sizes"
-            android:entryValues="@array/pref_sizesValues"
+            android:entries="@array/sizes"
+            android:entryValues="@array/sizesValues"
             android:key="iconsize"
             android:summary="@string/how_big_icons"
             android:title="@string/icon_size" />
 
         <ListPreference
-            android:defaultValue="@string/pref_rowsDefaultValue"
+            android:defaultValue="@string/rowsDefaultValue"
             android:dialogTitle="@string/max_text_lines"
-            android:entries="@array/pref_rows"
-            android:entryValues="@array/pref_rowsValues"
+            android:entries="@array/rows"
+            android:entryValues="@array/rowsValues"
             android:key="maxlines"
             android:summary="@string/how_much_text_you_want"
             android:title="@string/max_text_lines" />
@@ -40,7 +40,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="PREF_BEHAVIOR"
+        android:key="BEHAVIOR"
         android:title="Behavior">
 
         <CheckBoxPreference
@@ -68,10 +68,10 @@
             android:title="@string/open_in_for_all" />
 
         <ListPreference
-            android:defaultValue="@string/pref_sortDefaultValue"
+            android:defaultValue="@string/sort_ordersDefaultValue"
             android:dialogTitle="@string/sort"
-            android:entries="@array/pref_sort"
-            android:entryValues="@array/pref_sortValues"
+            android:entries="@array/sort_orders"
+            android:entryValues="@array/sort_ordersValues"
             android:key="sort"
             android:summary="@string/sort_decr"
             android:title="@string/sort" />
@@ -90,7 +90,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="PREF_ADVANCED"
+        android:key="ADVANCED"
         android:title="Advanced">
 
         <CheckBoxPreference
@@ -106,10 +106,10 @@
             android:title="@string/allow_gap_search" />
 
         <ListPreference
-            android:defaultValue="@string/pref_resolutionsDefaultValue"
+            android:defaultValue="@string/resolutionsDefaultValue"
             android:dialogTitle="Icon Resolution"
-            android:entries="@array/pref_resolutions"
-            android:entryValues="@array/pref_resolutionsValues"
+            android:entries="@array/resolutions"
+            android:entryValues="@array/resolutionsValues"
             android:key="icon_res"
             android:summary="@string/icon_resolution_summary"
             android:title="@string/icon_resolution_title" />
