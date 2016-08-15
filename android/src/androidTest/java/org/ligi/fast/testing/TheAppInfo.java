@@ -21,7 +21,7 @@ public class TheAppInfo extends AppInfoTestBase {
         resolveInfo.activityInfo.packageName = "packagename";
         resolveInfo.activityInfo.name = "activityname";
 
-        resolveInfo.activityInfo.applicationInfo= new ApplicationInfo();
+        resolveInfo.activityInfo.applicationInfo = new ApplicationInfo();
     }
 
     @SmallTest

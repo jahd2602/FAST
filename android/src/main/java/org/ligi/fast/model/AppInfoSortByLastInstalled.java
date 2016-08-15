@@ -10,7 +10,7 @@ public class AppInfoSortByLastInstalled implements Comparator<AppInfo> {
     public int compare(AppInfo lhs, AppInfo rhs) {
         int result = 0;
 
-        
+
         if (lhs.getInstallTime() == rhs.getInstallTime()) {
             result = sortByLabel.compare(lhs, rhs);
         } else if (lhs.getInstallTime() < rhs.getInstallTime()) {

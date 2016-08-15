@@ -140,7 +140,7 @@ public class AppActionDialogBuilder extends AlertDialog.Builder {
 
             if (packageManager == null) {
                 Log.w("FAST", "strange - there was no PackageManager - might lie to the user now with false" +
-                      "as I cannot determine the correct answer to the question isMarketApp()");
+                        "as I cannot determine the correct answer to the question isMarketApp()");
                 return false;
             }
 
@@ -167,11 +167,11 @@ public class AppActionDialogBuilder extends AlertDialog.Builder {
                 notification.icon = R.mipmap.ic_launcher;
                 try {
                     Method deprecatedMethod = notification.getClass()
-                                                          .getMethod("setLatestEventInfo",
-                                                                     Context.class,
-                                                                     CharSequence.class,
-                                                                     CharSequence.class,
-                                                                     PendingIntent.class);
+                            .getMethod("setLatestEventInfo",
+                                    Context.class,
+                                    CharSequence.class,
+                                    CharSequence.class,
+                                    PendingIntent.class);
                     deprecatedMethod.invoke(notification, context, title, context.getString(R.string.appActionDialog_title), intent);
                 } catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException
                         | InvocationTargetException e) {
@@ -180,8 +180,8 @@ public class AppActionDialogBuilder extends AlertDialog.Builder {
             } else {
                 // Use new API
                 Notification.Builder builder = new Notification.Builder(context).setContentIntent(intent)
-                                                                                .setSmallIcon(R.mipmap.ic_launcher)
-                                                                                .setContentTitle(title);
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle(title);
                 notification = builder.build();
             }
 

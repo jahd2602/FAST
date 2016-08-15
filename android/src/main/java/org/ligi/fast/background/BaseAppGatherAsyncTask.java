@@ -46,7 +46,7 @@ public class BaseAppGatherAsyncTask extends AsyncTask<Void, AppInfo, Void> {
                     // we saved the package list. An alternative would be to save the package list
                     // each time we leave
                     if (oldAppList != null) {
-                        for(AppInfo oldInfo : appInfoList) {
+                        for (AppInfo oldInfo : appInfoList) {
                             if (oldInfo.getActivityName().equals(actAppInfo.getActivityName())) {
                                 actAppInfo.setCallCount(oldInfo.getCallCount());
                                 break;
@@ -69,7 +69,7 @@ public class BaseAppGatherAsyncTask extends AsyncTask<Void, AppInfo, Void> {
         // TODO the progressbar could be more exact here by first querying both - calculating the
         // total app-count and then process them - but as we do not expect that much launchers we
         // should be OK here
-        appCount=0;
+        appCount = 0;
         processCategory(Intent.CATEGORY_LAUNCHER);
         processCategory(Intent.CATEGORY_HOME);
         return null;

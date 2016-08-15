@@ -22,7 +22,6 @@ public class TheSearchActivity extends AppInfoTestBase {
     }
 
 
-
     @SmallTest
     public void testShouldWorkWithDarkTheme() {
         newSettings.theme = "dark";

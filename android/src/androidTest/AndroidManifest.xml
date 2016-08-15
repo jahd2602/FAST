@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.ligi.fast">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    package="org.ligi.fast">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

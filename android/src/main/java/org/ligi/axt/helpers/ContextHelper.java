@@ -20,12 +20,12 @@ public class ContextHelper {
     }
 
     /**
-    * a little hack because I strongly disagree with the style guide here
-    * ;-)
-    * not having the Actionbar overfow menu also with devices with hardware
-    * key really helps discoverability
-    * http://stackoverflow.com/questions/9286822/how-to-force-use-of-overflow-menu-on-devices-with-menu-button
-    **/
+     * a little hack because I strongly disagree with the style guide here
+     * ;-)
+     * not having the Actionbar overfow menu also with devices with hardware
+     * key really helps discoverability
+     * http://stackoverflow.com/questions/9286822/how-to-force-use-of-overflow-menu-on-devices-with-menu-button
+     **/
     public void forceOverFlowMenuEvenThoughDeviceHasPhysical() {
 
         try {

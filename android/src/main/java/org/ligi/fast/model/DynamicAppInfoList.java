@@ -13,22 +13,26 @@ import java.util.Locale;
  */
 public class DynamicAppInfoList extends AppInfoList {
 
-    private List<AppInfo> backingAppInfoList;
-
-    private String currentQuery = "";
     private final FASTSettings settings;
+    private List<AppInfo> backingAppInfoList;
+    private String currentQuery = "";
     private Comparator<AppInfo> sorter = null;
     private SortMode currentSortMode = SortMode.UNSORTED;
-
-    public enum SortMode {
-        UNSORTED, ALPHABETICAL, MOST_USED, LAST_INSTALLED
-    }
 
     @SuppressWarnings("unchecked")
     public DynamicAppInfoList(List<AppInfo> backingAppInfoList, FASTSettings settings) {
         this.settings = settings;
-        this.backingAppInfoList=new ArrayList<>();
+        this.backingAppInfoList = new ArrayList<>();
         update(backingAppInfoList);
+    }
+
+    private static AppInfo getAppWithHash(String hash, List<AppInfo> appInfoList) {
+        for (AppInfo info : appInfoList) {
+            if (info.getHash().equals(hash)) {
+                return info;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -55,7 +59,7 @@ public class DynamicAppInfoList extends AppInfoList {
 
     public void setSortMode(SortMode mode) {
         currentSortMode = mode;
-        sorter=null;
+        sorter = null;
         if (mode.equals(SortMode.ALPHABETICAL)) {
             sorter = new AppInfoSortByLabelComparator();
         } else if (mode.equals(SortMode.MOST_USED)) {
@@ -78,11 +82,11 @@ public class DynamicAppInfoList extends AppInfoList {
                 filteredAppInfoList.add(info);
             }
         }
-        
+
         if (sorter != null) {
             java.util.Collections.sort(filteredAppInfoList, sorter);
         }
-        
+
         super.update(filteredAppInfoList);
     }
 
@@ -144,16 +148,11 @@ public class DynamicAppInfoList extends AppInfoList {
         return false;
     }
 
-    private static AppInfo getAppWithHash(String hash, List<AppInfo> appInfoList) {
-        for (AppInfo info : appInfoList) {
-            if (info.getHash().equals(hash)) {
-                return info;
-            }
-        }
-        return null;
-    }
-
     public List<AppInfo> getBackingAppInfoList() {
         return backingAppInfoList;
+    }
+
+    public enum SortMode {
+        UNSORTED, ALPHABETICAL, MOST_USED, LAST_INSTALLED
     }
 }

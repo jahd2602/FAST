@@ -150,7 +150,7 @@ public class TheAppInfoList {
 
         tested.setSortMode(DynamicAppInfoList.SortMode.ALPHABETICAL);
 
-        assertThat(tested).containsExactly(appInfo2,appInfo1,appInfo5,appInfo4,appInfo3);
+        assertThat(tested).containsExactly(appInfo2, appInfo1, appInfo5, appInfo4, appInfo3);
     }
 
     @Test

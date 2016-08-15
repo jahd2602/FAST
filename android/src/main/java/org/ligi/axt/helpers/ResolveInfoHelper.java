@@ -13,7 +13,7 @@ public class ResolveInfoHelper {
 
     public String getLabelSafely(Context context) {
         CharSequence charSequence = resolveInfo.loadLabel(context.getPackageManager());
-        if (charSequence==null) {
+        if (charSequence == null) {
             return "";
         }
         return charSequence.toString();

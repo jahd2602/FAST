@@ -54,7 +54,7 @@ public class FileHelper {
             return false;
         }
 
-        for (String child:file2delete.list()) {
+        for (String child : file2delete.list()) {
             File temp = new File(file2delete, child);
             if (temp.isDirectory()) {
                 deleteRecursive(temp);

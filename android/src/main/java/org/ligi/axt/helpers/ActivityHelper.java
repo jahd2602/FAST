@@ -11,8 +11,8 @@ public class ActivityHelper extends ContextHelper {
     private final Activity activity;
 
     public ActivityHelper(Activity activity) {
-        super (activity);
-        this.activity =activity;
+        super(activity);
+        this.activity = activity;
     }
 
     public <T extends View> T findById(int id) {
@@ -28,13 +28,13 @@ public class ActivityHelper extends ContextHelper {
     // TODO find out why the above is not working and I need to use SupressLint to get rid of the error
     @SuppressLint("newApi")
     public void disableRotation() {
-        switch (activity.getResources().getConfiguration().orientation){
+        switch (activity.getResources().getConfiguration().orientation) {
             case Configuration.ORIENTATION_PORTRAIT:
-                if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.FROYO){
+                if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.FROYO) {
                     activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 } else {
                     int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-                    if(rotation == android.view.Surface.ROTATION_90|| rotation == android.view.Surface.ROTATION_180){
+                    if (rotation == android.view.Surface.ROTATION_90 || rotation == android.view.Surface.ROTATION_180) {
                         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
                     } else {
                         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -43,11 +43,11 @@ public class ActivityHelper extends ContextHelper {
                 break;
 
             case Configuration.ORIENTATION_LANDSCAPE:
-                if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.FROYO){
+                if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.FROYO) {
                     activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 } else {
                     int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-                    if(rotation == android.view.Surface.ROTATION_0 || rotation == android.view.Surface.ROTATION_90){
+                    if (rotation == android.view.Surface.ROTATION_0 || rotation == android.view.Surface.ROTATION_90) {
                         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                     } else {
                         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);

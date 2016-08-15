@@ -34,10 +34,10 @@
     </LinearLayout>
 
     <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progress"
-        android:layout_gravity="center_horizontal|bottom"
-        style="?android:attr/progressBarStyleHorizontal" />
+        android:layout_gravity="center_horizontal|bottom" />
 
 </LinearLayout>
