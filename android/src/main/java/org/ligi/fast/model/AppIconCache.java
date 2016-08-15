@@ -8,9 +8,9 @@ import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
 import org.ligi.fast.App;
-import org.ligi.tracedroid.logging.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,7 +34,7 @@ public class AppIconCache {
         final PackageManager packageManager = ctx.getPackageManager();
 
         if (packageManager == null) {
-            Log.w("could not cache the Icon - PM is null");
+            Log.w("FAST", "could not cache the Icon - PM is null");
             return;
         }
 
@@ -73,7 +73,7 @@ public class AppIconCache {
 
     private File getIconCacheFile() {
         final File file = new File(App.getBaseDir() + "/" + appInfo.getHash() + ".png");
-        Log.i("returning " + file.exists());
+        Log.i("FAST", "returning " + file.exists());
         return file;
     }
 
@@ -103,7 +103,7 @@ public class AppIconCache {
             }
 
         } catch (Exception e) {
-            Log.w(" Could not cache the Icon" + e);
+            Log.w("FAST", " Could not cache the Icon" + e);
         }
         return false;
     }
@@ -140,7 +140,7 @@ public class AppIconCache {
             cachedIcon = new SoftReference<Drawable>(drawable);
             return cachedIcon.get();
         } catch (Exception e) {
-            Log.w("Could not load the cached Icon" + getIconCacheFile().getAbsolutePath() + " reason " + e);
+            Log.w("FAST", "Could not load the cached Icon" + getIconCacheFile().getAbsolutePath() + " reason " + e);
         }
 
         // if we came here we we could not return the cached Icon - ty to rescue situation

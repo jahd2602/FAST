@@ -37,7 +37,6 @@ import org.ligi.fast.model.AppInfo;
 import org.ligi.fast.model.AppInfoList;
 import org.ligi.fast.model.DynamicAppInfoList;
 import org.ligi.fast.util.AppInfoListStore;
-import org.ligi.tracedroid.sending.TraceDroidEmailSender;
 
 import java.util.Locale;
 
@@ -148,7 +147,7 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
 
         });
 
-        TraceDroidEmailSender.sendStackTraces("ligi@ligi.de", this);
+//        TraceDroidEmailSender.sendStackTraces("ligi@ligi.de", this);
 
 
         if (appInfoList.size() == 0) {

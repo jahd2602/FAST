@@ -15,12 +15,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 
 import org.ligi.fast.App;
 import org.ligi.fast.R;
 import org.ligi.fast.TargetStore;
 import org.ligi.fast.model.AppInfo;
-import org.ligi.tracedroid.logging.Log;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -139,7 +139,7 @@ public class AppActionDialogBuilder extends AlertDialog.Builder {
             PackageManager packageManager = context.getPackageManager();
 
             if (packageManager == null) {
-                Log.w("strange - there was no PackageManager - might lie to the user now with false" +
+                Log.w("FAST", "strange - there was no PackageManager - might lie to the user now with false" +
                       "as I cannot determine the correct answer to the question isMarketApp()");
                 return false;
             }

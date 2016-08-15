@@ -3,6 +3,7 @@ package org.ligi.fast.background;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import org.ligi.fast.App;
 import org.ligi.fast.model.AppInfoList;
@@ -13,8 +14,10 @@ public class AppInstallOrRemoveReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         final AppInfoListStore appInfoListStore = new AppInfoListStore(context);
 
+        Toast.makeText(context,intent.getAction(),Toast.LENGTH_SHORT).show();
+
         if (App.packageChangedListener==null) {
-            App.packageChangedListener= new App.PackageChangedListener() {
+            App.packageChangedListener = new App.PackageChangedListener() {
                 @Override
                 public void onPackageChange(AppInfoList appInfoList) {
                     appInfoListStore.save(appInfoList);

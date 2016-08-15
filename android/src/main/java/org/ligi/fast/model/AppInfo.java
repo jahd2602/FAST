@@ -8,18 +8,20 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.util.Log;
+
 import org.ligi.axt.helpers.ResolveInfoHelper;
 import org.ligi.fast.util.UmlautConverter;
-import org.ligi.tracedroid.logging.Log;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Class to Retrieve / Store Application Information needed by this App
  */
 public class AppInfo {
     private static final String SEPARATOR = ";;";
-
+    private final AppIconCache iconCache;
     private String label;
     private String alternateLabel;
     private String packageName;
@@ -29,8 +31,6 @@ public class AppInfo {
     private long installTime;
     private int callCount;
     private boolean isValid = true;
-
-    private final AppIconCache iconCache;
 
     private AppInfo(Context ctx) {
         iconCache = new AppIconCache(ctx, this);
@@ -134,7 +134,7 @@ public class AppInfo {
             return hexString.toString();
 
         } catch (NoSuchAlgorithmException e) {
-            Log.w("MD5 not found - having a fallback - but really - no MD5 - where the f** am I?");
+            Log.w("FAST", "MD5 not found - having a fallback - but really - no MD5 - where the f** am I?");
             return packageName; // fallback
         }
     }
@@ -175,12 +175,12 @@ public class AppInfo {
         return callCount;
     }
 
-    public long getInstallTime() {
-        return installTime;
-    }
-
     public void setCallCount(int count) {
         callCount = count;
+    }
+
+    public long getInstallTime() {
+        return installTime;
     }
 
     public void incrementCallCount() {

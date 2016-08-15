@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.ligi.fast.model.AppInfo;
 import org.ligi.fast.model.AppInfoList;
-import org.ligi.tracedroid.logging.Log;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class BaseAppGatherAsyncTask extends AsyncTask<Void, AppInfo, Void> {
                 }
             }
         } catch (Exception e) {
-            Log.d("Exception occurred when getting activities skipping...!");
+            Log.d("FAST", "Exception occurred when getting activities skipping...!");
         }
 
     }

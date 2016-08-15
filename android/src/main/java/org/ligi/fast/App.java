@@ -6,35 +6,19 @@ import android.app.Application;
 import org.ligi.fast.model.AppInfoList;
 import org.ligi.fast.settings.AndroidFASTSettings;
 import org.ligi.fast.settings.FASTSettings;
-import org.ligi.tracedroid.TraceDroid;
 
 import java.io.File;
 
 public class App extends Application {
 
+    public static final String LOG_TAG = "FAST App Search";
+    public static PackageChangedListener packageChangedListener;
     private static FASTSettings settings;
     private static App appInstance;
-
-    public static final String LOG_TAG = "FAST App Search";
-
-    public interface PackageChangedListener {
-        void onPackageChange(AppInfoList appInfoList);
-    }
-
-    public static PackageChangedListener packageChangedListener;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        appInstance = this;
-        TraceDroid.init(this);
-        settings = new AndroidFASTSettings(App.this);
-    }
 
     public static FASTSettings getSettings() {
         return settings;
     }
-
 
     private static int getThemeByString(String theme) {
 
@@ -62,10 +46,22 @@ public class App extends Application {
     }
 
     public static String getStoreURL4PackageName(String pname) {
-        return TargetStore.STORE_URL + pname;
+        return org.ligi.fast.TargetStore.STORE_URL + pname;
     }
 
     public static File getBaseDir() {
         return appInstance.getFilesDir();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        appInstance = this;
+        //TraceDroid.init(this);
+        settings = new AndroidFASTSettings(App.this);
+    }
+
+    public interface PackageChangedListener {
+        void onPackageChange(AppInfoList appInfoList);
     }
 }
