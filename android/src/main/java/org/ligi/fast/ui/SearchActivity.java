@@ -44,9 +44,8 @@ import java.util.Locale;
  * The main Activity for this App - most things come together here
  */
 public class SearchActivity extends AppCompatActivity implements App.PackageChangedListener {
-
     private static final int DIALOG_REQUEST_CODE = 1;
-
+    private static boolean needsRestart = false;
     private DynamicAppInfoList appInfoList;
     private AppInfoAdapter adapter;
     private String oldSearch = "";
@@ -65,6 +64,10 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
             default:
                 return R.dimen.cell_size;
         }
+    }
+
+    public static void needsRestart() {
+        needsRestart = true;
     }
 
     @Override
@@ -222,6 +225,10 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
     protected void onResume() {
         super.onResume();
 
+        if (needsRestart) {
+            restart();
+        }
+
         App.packageChangedListener = this;
 
         searchQueryEditText.setText(""); // using the app showed that we want a new search here and the old stuff is not interesting anymore
@@ -278,7 +285,6 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
         return super.onKeyDown(keyCode, event);
     }
 
-
     @Override
     public void onBackPressed() {
         finishIfWeAreNotTheDefaultLauncher();
@@ -333,11 +339,25 @@ public class SearchActivity extends AppCompatActivity implements App.PackageChan
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                finish();
                 startActivity(new Intent(this, MyPreferenceActivity.class));
                 break;
         }
 
         return true;
+    }
+
+    private void restart() {
+        needsRestart = false;
+        if (Build.VERSION.SDK_INT >= 11) {
+            recreate();
+        } else {
+            Intent intent = getIntent();
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            finish();
+            overridePendingTransition(0, 0);
+
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        }
     }
 }

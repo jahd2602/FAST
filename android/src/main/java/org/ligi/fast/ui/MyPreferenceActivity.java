@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
@@ -58,14 +59,14 @@ public class MyPreferenceActivity extends AppCompatActivity implements SharedPre
             }
         });
 
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
+
         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, preferenceFragment).commit();
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        switch (key) {
-
-        }
+        SearchActivity.needsRestart();
     }
 
     @Override
@@ -82,6 +83,11 @@ public class MyPreferenceActivity extends AppCompatActivity implements SharedPre
     @Override
     public void onBackPressed() {
         finish();
-        startActivity(new Intent(this, SearchActivity.class));
+    }
+
+    @Override
+    public void onDestroy() {
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
     }
 }
