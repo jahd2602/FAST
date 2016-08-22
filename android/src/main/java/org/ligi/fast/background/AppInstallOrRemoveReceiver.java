@@ -14,7 +14,7 @@ public class AppInstallOrRemoveReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         final AppInfoListStore appInfoListStore = new AppInfoListStore(context);
 
-        Toast.makeText(context, intent.getAction(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, intent.getAction() + "\n" + intent.getDataString().replace("package:", ""), Toast.LENGTH_SHORT).show();
 
         if (App.packageChangedListener == null) {
             App.packageChangedListener = new App.PackageChangedListener() {
