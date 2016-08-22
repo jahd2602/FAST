@@ -11,7 +11,7 @@
         <item name="android:windowBackground">@color/colorDark</item>
         <item name="android:navigationBarColor" tools:targetApi="21">@color/colorDark</item>
 
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="preferenceTheme">@style/PreferenceFixTheme</item>
     </style>
 
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
@@ -22,7 +22,7 @@
         <item name="android:windowBackground">@color/colorLight</item>
         <item name="android:navigationBarColor" tools:targetApi="21">@color/colorLight</item>
 
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="preferenceTheme">@style/PreferenceFixTheme.Light</item>
     </style>
 
     <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
