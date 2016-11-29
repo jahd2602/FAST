@@ -58,7 +58,7 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="finish_on_LAUNCH"
-            android:summary="eeee"
+            android:summary="@string/to_help_clear_memory"
             android:title="Finish app" />
 
         <CheckBoxPreference
